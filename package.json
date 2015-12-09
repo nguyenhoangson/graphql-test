@@ -1,0 +1,19 @@
+{
+  "name": "test",
+  "version": "1.0.0",
+  "description": "Tech stack: NodeJS, Express, Mongodb, GraphQL",
+  "main": "index.js",
+  "scripts": {
+    "start": "node --harmony src/server/index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "nguyenhoangson",
+  "license": "ISC",
+  "dependencies": {
+    "babel": "^5.6.14",
+    "babel-core": "^5.6.15",
+    "express": "^4.13.3",
+    "express-graphql": "^0.4.5",
+    "graphql": "^0.4.14"
+  }
+}
