@@ -4,7 +4,9 @@ import {
   GraphQLString
 } from 'graphql/type';
  
-import data from '../../data/data.json';
+
+// Get the data from the real data services (e.g: databases, APIs)
+import data from './data.json';
 
 // Define our user type, with two string fields; `id` and `name`
 var userType = new GraphQLObjectType({
@@ -17,7 +19,6 @@ var userType = new GraphQLObjectType({
 
 // Define our schema, with one top level field, named `user`, that
 // takes an `id` argument and returns the User with that ID.
-
 var schema = new GraphQLSchema({
   query: new GraphQLObjectType({
     name: 'Query',

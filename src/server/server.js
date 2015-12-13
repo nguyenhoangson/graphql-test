@@ -1,23 +1,34 @@
 
-
 import express from 'express';
 import graphqlHTTP from 'express-graphql';
-import schema from './schema';
+import schema from '../../data/schema';
+import User from '../../data/user';
+import mongoose from 'mongoose';
 
-// Declaration
+// connect to database	
+mongoose.connect('mongodb://localhost/graphql');
+
+// declare variables
 var app = express();
 const PORT = 8080;
 
-// Handle requests
+// handle requests
 app
 	.use('/graphql', graphqlHTTP({ schema: schema, graphiql: true, pretty: true}))
+
 	.get('/', function(){
-		console.log('Hello the world');
+		User.find({name: "Nguyen Hoang Son"}, function(err, user){
+			if(err) return err;
+			console.log(user);
+		});
+
+		
 	})
+
 	.get('/data', function(req, res){
 		res.send('Hi data here');
 	})
-	.listen(8080, function(){
+
+	.listen(PORT, function(){
 		console.log('Listen on port ' + PORT + '...');
 	});
-
